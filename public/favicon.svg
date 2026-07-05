@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Lencho developer logo">
+  <rect width="64" height="64" rx="16" fill="#020617"/>
+  <path d="M20 18h10c10 0 16 4 16 14 0 10-6 16-16 16H20z" fill="#22d3ee"/>
+  <path d="M20 18h10c10 0 16 4 16 14 0 10-6 16-16 16H20z" fill="none" stroke="#ffffff" stroke-width="2"/>
+  <path d="M18 48h28" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+</svg>
