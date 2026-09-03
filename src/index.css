@@ -116,7 +116,7 @@ ul {
 .section-shell {
   width: min(100%, 1220px);
   margin-inline: auto;
-  padding-inline: clamp(1rem, 2vw, 2rem);
+  padding-inline: clamp(1.2rem, 4vw, 2rem);
 }
 
 .glass-panel {
@@ -126,11 +126,83 @@ ul {
   backdrop-filter: blur(20px);
 }
 
+.identity-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(34, 211, 238, 0.1), rgba(15, 23, 42, 0.75));
+  padding: 0.7rem 1.15rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #e2e8f0;
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.12), 0 12px 30px rgba(59, 130, 246, 0.15);
+  text-shadow: 0 0 18px rgba(103, 232, 249, 0.32);
+  animation: identityFloat 5.5s ease-in-out infinite;
+}
+
+.hero-heading {
+  font-size: clamp(2.55rem, 5vw, 5.2rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+  text-wrap: balance;
+}
+
+.profile-shell {
+  animation: profileFloat 7s ease-in-out infinite;
+}
+
 .gradient-text {
   background: linear-gradient(90deg, #a78bfa 0%, #c084fc 20%, #60a5fa 60%, #67e8f9 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+@keyframes identityFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.12), 0 10px 24px rgba(59, 130, 246, 0.12);
+  }
+  50% {
+    transform: translateY(-3px);
+    box-shadow: 0 0 0 1px rgba(147, 197, 253, 0.14), 0 16px 28px rgba(56, 189, 248, 0.15);
+  }
+}
+
+@keyframes profileFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 640px) {
+  .identity-badge {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-heading {
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
+    line-height: 0.98;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .identity-badge,
+  .profile-shell {
+    animation: none;
+  }
 }
 
 .accent-gradient {
