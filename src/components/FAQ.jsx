@@ -1,4 +1,5 @@
-import { useState } from "react";
+﻿import { useState } from "react";
+import { motion } from "framer-motion";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
 function FAQ() {
@@ -19,7 +20,7 @@ function FAQ() {
       id: 3,
       question: "Which technologies do you use?",
       answer:
-        "I mainly work with React, Next.js, JavaScript, Tailwind CSS, Node.js, Express.js, MongoDB, Firebase, Github.render,netlify and Vercel.",
+        "I mainly work with React, Next.js, JavaScript, Tailwind CSS, Node.js, Express.js, MongoDB, Firebase, GitHub, Netlify, and Vercel.",
     },
     {
       id: 4,
@@ -31,7 +32,7 @@ function FAQ() {
       id: 5,
       question: "How can we work together?",
       answer:
-        "Simply contact me through the contact form, email or LinkedIn and telegram. We'll discuss your project requirements and timeline.",
+        "Simply contact me through the contact form, email, LinkedIn, or Telegram. We'll discuss your project requirements and timeline.",
     },
     {
       id: 6,
@@ -48,72 +49,41 @@ function FAQ() {
   };
 
   return (
-    <section
-      id="faq"
-      className="py-24 bg-[#08111F]"
-    >
-      <div className="max-w-4xl mx-auto px-6">
-
-        <div className="text-center mb-16">
-
-          <span className="text-blue-500 uppercase tracking-widest font-semibold">
-            FAQ
-          </span>
-
-          <h2 className="text-4xl md:text-5xl font-bold mt-4">
-            Frequently Asked Questions
-          </h2>
-
-          <p className="text-gray-400 mt-5">
-            Here are answers to some common questions clients ask before starting a project.
-          </p>
-
+    <section id="faq" className="relative overflow-hidden px-6 py-24 sm:px-8 lg:px-10">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-violet-500/10 to-transparent" />
+      <div className="mx-auto max-w-5xl relative">
+        <div className="mb-16 text-center">
+          <span className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">FAQ</span>
+          <h2 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">Frequently asked questions about working together.</h2>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-slate-400">Answers to the most common questions clients ask before starting a website or web application project.</p>
         </div>
 
         <div className="space-y-5">
-
           {faqs.map((faq) => (
-
-            <div
+            <motion.div
               key={faq.id}
-              className="bg-[#111827] border border-gray-800 rounded-2xl overflow-hidden"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: faq.id * 0.05 }}
+              className="rounded-4xl border border-white/10 bg-card shadow-[0_30px_90px_rgba(14,165,233,0.08)] backdrop-blur-xl"
             >
-
               <button
                 onClick={() => toggleFAQ(faq.id)}
-                className="w-full flex justify-between items-center p-6 text-left"
+                className="flex w-full items-center justify-between gap-4 p-6 text-left"
               >
-
-                <h3 className="text-lg md:text-xl font-semibold">
-                  {faq.question}
-                </h3>
-
-                {active === faq.id ? (
-                  <FaMinus className="text-blue-500" />
-                ) : (
-                  <FaPlus className="text-blue-500" />
-                )}
-
+                <span className="text-lg font-semibold text-white">{faq.question}</span>
+                {active === faq.id ? <FaMinus className="text-cyan-400" /> : <FaPlus className="text-cyan-400" />}
               </button>
 
               {active === faq.id && (
-
-                <div className="px-6 pb-6">
-
-                  <p className="text-gray-400 leading-8">
-                    {faq.answer}
-                  </p>
-
+                <div className="border-t border-white/10 px-6 pb-6 pt-3">
+                  <p className="text-slate-400 leading-8">{faq.answer}</p>
                 </div>
-
               )}
-
-            </div>
-
+            </motion.div>
           ))}
-
         </div>
-
       </div>
     </section>
   );

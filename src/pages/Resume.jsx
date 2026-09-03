@@ -1,11 +1,11 @@
-import { FaBriefcase, FaCode, FaDownload, FaGraduationCap, FaLaptopCode } from "react-icons/fa";
+import { FaDownload, FaGraduationCap, FaLaptopCode } from "react-icons/fa";
 
 function Resume() {
   const skills = ["React", "Next.js", "Tailwind CSS", "JavaScript", "TypeScript", "Node.js", "Express.js", "MongoDB", "Firebase", "Git", "GitHub", "REST API", "React Native"];
 
   return (
     <section className="px-6 py-28 sm:px-8 lg:px-10">
-      <div className="mx-auto max-w-6xl rounded-4xl border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-black/20 sm:p-10">
+      <div className="mx-auto max-w-6xl rounded-4xl border border-white/10 bg-card p-8 shadow-2xl shadow-black/20 sm:p-10">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">Resume</p>
           <h1 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">My Resume</h1>
@@ -16,7 +16,7 @@ function Resume() {
         </div>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-2">
-          <div className="rounded-3xl border border-white/10 bg-slate-800/70 p-8">
+          <div className="rounded-3xl border border-white/10 bg-card p-8">
             <div className="flex items-center gap-3 text-cyan-400"><FaGraduationCap className="text-2xl" /><h2 className="text-2xl font-semibold text-white">Education</h2></div>
             <div className="mt-8 space-y-6">
               <div>
@@ -27,7 +27,7 @@ function Resume() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-slate-800/70 p-8">
+          <div className="rounded-3xl border border-white/10 bg-card p-8">
             <div className="flex items-center gap-3 text-emerald-400"><FaLaptopCode className="text-2xl" /><h2 className="text-2xl font-semibold text-white">Experience</h2></div>
             <div className="mt-8 space-y-6">
               <div>

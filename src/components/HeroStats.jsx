@@ -5,46 +5,50 @@ function HeroStats() {
   const stats = [
     {
       id: 1,
-      icon: <FaCode />,
-      number: "5+",
-      title: "Projects shipped",
-      color: "text-cyan-400",
+      icon: <FaCode className="text-2xl" />,
+      number: "20+",
+      title: "Projects Completed",
+      color: "text-cyan-300",
     },
     {
       id: 2,
-      icon: <FaLaptopCode />,
-      number: "3+",
-      title: "Years building",
-      color: "text-emerald-400",
+      icon: <FaUsers className="text-2xl" />,
+      number: "10+",
+      title: "Happy Clients",
+      color: "text-violet-300",
     },
     {
       id: 3,
-      icon: <FaAward />,
-      number: "100%",
-      title: "Client focus",
-      color: "text-violet-400",
+      icon: <FaLaptopCode className="text-2xl" />,
+      number: "2+",
+      title: "Years Experience",
+      color: "text-emerald-300",
     },
     {
       id: 4,
-      icon: <FaUsers />,
-      number: "24/7",
-      title: "Reliable support",
-      color: "text-amber-400",
+      icon: <FaAward className="text-2xl" />,
+      number: "100%",
+      title: "Client Satisfaction",
+      color: "text-amber-300",
     },
   ];
 
   return (
-    <section className="mt-16">
-      <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        {stats.map((item) => (
+    <section className="mx-auto max-w-5xl">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        {stats.map((item, index) => (
           <motion.div
             key={item.id}
-            whileHover={{ scale: 1.04, y: -6 }}
-            transition={{ duration: 0.25 }}
-            className="rounded-2xl border border-white/10 bg-slate-900/70 p-6 text-center shadow-lg shadow-black/20"
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.08 }}
+            whileHover={{ y: -4, scale: 1.01 }}
+            className="rounded-[1.5rem] border border-white/10 bg-slate-900/60 p-5 shadow-[0_24px_70px_rgba(2,6,23,0.35)] backdrop-blur-xl"
           >
-            <div className={`mb-4 flex justify-center text-3xl ${item.color}`}>{item.icon}</div>
-            <h3 className="text-3xl font-semibold text-white">{item.number}</h3>
+            <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 ${item.color}`}>
+              {item.icon}
+            </div>
+            <h3 className="text-3xl font-bold text-white">{item.number}</h3>
             <p className="mt-2 text-sm text-slate-400">{item.title}</p>
           </motion.div>
         ))}

@@ -9,7 +9,7 @@ function ProjectDetails() {
 
   if (!project) {
     return (
-      <section className="flex min-h-screen items-center justify-center bg-slate-950 px-6 py-24">
+      <section className="flex min-h-screen items-center justify-center px-6 py-24">
         <div className="text-center">
           <h1 className="text-4xl font-semibold text-white">Project not found</h1>
           <p className="mt-4 text-slate-400">The project you are looking for does not exist.</p>
@@ -21,8 +21,8 @@ function ProjectDetails() {
 
   return (
     <section className="px-6 py-28 sm:px-8 lg:px-10">
-      <div className="mx-auto max-w-6xl rounded-4xl border border-white/10 bg-slate-900/70 p-8 shadow-2xl shadow-black/20">
-        <img src={project.image} alt={project.title} loading="eager" decoding="async" className="h-90 w-full rounded-3xl object-cover object-center" />
+      <div className="mx-auto max-w-6xl rounded-4xl border border-white/10 bg-card p-8 shadow-2xl shadow-black/20">
+        <img src={project.image} alt={project.title} loading="eager" decoding="async" className="h-96 w-full rounded-3xl object-cover object-center" />
 
         <div className="mt-10">
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">{project.category}</p>
@@ -32,8 +32,8 @@ function ProjectDetails() {
 
         <div className="mt-8 flex flex-wrap gap-3">
           {project.technologies.map((tech) => (
-            <span key={tech} className="rounded-full border border-white/10 bg-slate-800/80 px-4 py-2 text-sm text-slate-300">{tech}</span>
-          ))}
+              <span key={tech} className="rounded-full border border-white/10 bg-glass px-4 py-2 text-sm text-slate-300">{tech}</span>
+            ))}
         </div>
 
         <div className="mt-12">

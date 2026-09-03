@@ -1,33 +1,72 @@
-import { motion } from "framer-motion";
-import { FaBlog, FaCloudUploadAlt, FaLaptopCode, FaMobileAlt, FaReact, FaServer, FaShoppingCart, FaUserTie } from "react-icons/fa";
+﻿import { motion } from "framer-motion";
+import { FaLaptopCode, FaShoppingCart, FaMobileAlt, FaRobot, FaNetworkWired } from "react-icons/fa";
 
 const services = [
-  { title: "MERN Stack Development", description: "Full-stack applications built with React, Node.js, Express, and MongoDB for scale, speed, and maintainability.", icon: <FaLaptopCode /> },
-  { title: "React Development", description: "Modern, interactive interfaces with clean architecture and premium user experience for startups and product teams.", icon: <FaReact /> },
-  { title: "Responsive Website Development", description: "Beautiful, mobile-first websites that feel effortless on every screen and improve engagement across devices.", icon: <FaMobileAlt /> },
-  { title: "Business Websites", description: "Professional websites designed to build trust, introduce your brand, and turn visitors into leads.", icon: <FaUserTie /> },
-  { title: "E-Commerce Websites", description: "Conversion-focused storefronts with strong UX, clear product flows, and a polished shopping experience.", icon: <FaShoppingCart /> },
-  { title: "Portfolio & Blog Systems", description: "Elegant portfolio sites and content systems that help your work or story stand out online.", icon: <FaBlog /> },
-  { title: "API Development", description: "Reliable REST APIs and backend services that connect your frontend, data, and business logic efficiently.", icon: <FaServer /> },
-  { title: "Deployment & Maintenance", description: "Production deployment, performance monitoring, updates, and long-term support so your product stays healthy.", icon: <FaCloudUploadAlt /> },
+  {
+    title: "Web Development",
+    description: "Modern web applications built with React, Tailwind, and thoughtful UI structure.",
+    icon: <FaLaptopCode className="text-2xl text-white" />,
+    accent: "from-violet-500/25 to-cyan-500/25",
+  },
+  {
+    title: "E-Commerce",
+    description: "Conversion-driven storefronts with polished product presentation and checkout flows.",
+    icon: <FaShoppingCart className="text-2xl text-white" />,
+    accent: "from-indigo-500/25 to-violet-500/25",
+  },
+  {
+    title: "Mobile Apps",
+    description: "Cross-platform experiences designed for clarity, performance, and ongoing growth.",
+    icon: <FaMobileAlt className="text-2xl text-white" />,
+    accent: "from-cyan-500/25 to-sky-500/25",
+  },
+  {
+    title: "AI Integration",
+    description: "Smart automation and data-driven features that enhance product usability and speed.",
+    icon: <FaRobot className="text-2xl text-white" />,
+    accent: "from-purple-500/25 to-pink-500/25",
+  },
+  {
+    title: "API Development",
+    description: "Reliable REST APIs and backend services that connect frontend, data, and user workflows.",
+    icon: <FaNetworkWired className="text-2xl text-white" />,
+    accent: "from-emerald-500/25 to-cyan-500/25",
+  },
 ];
 
 function Services() {
   return (
-    <section id="services" className="px-6 py-24 sm:px-8 lg:px-10">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-16 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">Services</p>
-          <h2 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">Digital solutions built for growth, trust, and long-term impact.</h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-400">I help businesses and founders launch polished web products that communicate value clearly, look premium, and support real commercial goals.</p>
+    <section id="services" className="relative py-20 sm:py-24">
+      <div className="section-shell relative">
+        <div className="mb-10 text-left">
+          <span className="section-label">What I can do for you</span>
+          <h2 className="mt-5 max-w-2xl text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+            Premium digital solutions for ambitious brands.
+          </h2>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
           {services.map((service, index) => (
-            <motion.article key={service.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: index * 0.05 }} whileHover={{ y: -8, scale: 1.01 }} className="rounded-[1.75rem] border border-white/10 bg-slate-900/70 p-8 shadow-lg shadow-black/20">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/10 text-2xl text-cyan-400">{service.icon}</div>
-              <h3 className="mt-6 text-2xl font-semibold text-white">{service.title}</h3>
-              <p className="mt-4 text-base leading-7 text-slate-400">{service.description}</p>
+            <motion.article
+              key={service.title}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              whileHover={{ y: -8, scale: 1.01 }}
+              className="group relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-900/60 p-5 shadow-[0_24px_80px_rgba(2,6,23,0.35)]"
+            >
+              <div className={`absolute inset-x-0 top-0 h-24 bg-linear-to-r ${service.accent}`} />
+              <div className="relative z-10">
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-violet-500 to-cyan-400 shadow-[0_20px_35px_rgba(96,165,250,0.2)]">
+                  {service.icon}
+                </div>
+                <h3 className="mt-6 text-xl font-semibold text-white">{service.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-400">{service.description}</p>
+                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+                  Read more
+                </div>
+              </div>
             </motion.article>
           ))}
         </div>

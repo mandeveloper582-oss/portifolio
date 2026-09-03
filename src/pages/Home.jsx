@@ -5,6 +5,7 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Experience from "../components/Experience";
 import Testimonials from "../components/Testimonials";
+import CTA from "../components/CTA";
 import FAQ from "../components/FAQ";
 import Contact from "../components/Contact";
 
@@ -18,6 +19,7 @@ function Home() {
       <Projects />
       <Experience />
       <Testimonials />
+      <CTA />
       <FAQ />
       <Contact />
     </main>

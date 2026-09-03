@@ -156,7 +156,7 @@ export const tools = [
     color: "text-cyan-400",
   },
   {
-    id: 6,
+    id: 6 ,
     name: "React Native",
     icon: FaReact,
     color: "text-cyan-400",

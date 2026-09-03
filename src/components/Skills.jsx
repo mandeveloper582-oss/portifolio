@@ -1,81 +1,121 @@
-import { motion } from "framer-motion";
-
+﻿import { motion } from "framer-motion";
 import { backendSkills, frontendSkills, tools } from "../data/Skills";
 
 function Skills() {
   return (
-    <section id="skills" className="px-6 py-24 sm:px-8 lg:px-10">
-      <div className="mx-auto max-w-7xl">
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-16 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">Skills</p>
-          <h2 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">A modern toolkit for fast product delivery.</h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-400">I use a carefully chosen stack to build resilient interfaces, APIs, and polished digital products from concept to launch.</p>
-        </motion.div>
-
-        <div className="mb-16 space-y-8">
-          <div>
-            <h3 className="mb-6 text-2xl font-semibold text-white">Frontend</h3>
-            <div className="grid gap-6 md:grid-cols-2">
-              {frontendSkills.map((skill) => {
-                const Icon = skill.icon;
-                return (
-                  <motion.div key={skill.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} whileHover={{ y: -6, scale: 1.01 }} className="rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-lg shadow-black/20">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <div className={`text-3xl ${skill.color}`}>
-                          <Icon />
-                        </div>
-                        <h4 className="text-lg font-semibold text-white">{skill.name}</h4>
-                      </div>
-                      <span className="text-sm font-semibold text-cyan-400">{skill.level}%</span>
-                    </div>
-                    <div className="mt-5 h-2.5 overflow-hidden rounded-full bg-slate-800">
-                      <motion.div initial={{ width: 0 }} whileInView={{ width: `${skill.level}%` }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="h-full rounded-full bg-linear-to-r from-cyan-500 to-blue-500" />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="mb-6 text-2xl font-semibold text-white">Backend & Data</h3>
-            <div className="grid gap-6 md:grid-cols-2">
-              {backendSkills.map((skill) => {
-                const Icon = skill.icon;
-                return (
-                  <motion.div key={skill.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} whileHover={{ y: -6, scale: 1.01 }} className="rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-lg shadow-black/20">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <div className={`text-3xl ${skill.color}`}>
-                          <Icon />
-                        </div>
-                        <h4 className="text-lg font-semibold text-white">{skill.name}</h4>
-                      </div>
-                      <span className="text-sm font-semibold text-cyan-400">{skill.level}%</span>
-                    </div>
-                    <div className="mt-5 h-2.5 overflow-hidden rounded-full bg-slate-800">
-                      <motion.div initial={{ width: 0 }} whileInView={{ width: `${skill.level}%` }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="h-full rounded-full bg-linear-to-r from-emerald-500 to-green-500" />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
+    <section id="skills" className="relative py-20 sm:py-24">
+      <div className="section-shell relative">
+        <div className="mb-10 max-w-3xl">
+          <span className="section-label">My skills</span>
+          <h2 className="mt-5 text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+            Modern tools for building standout digital products.
+          </h2>
         </div>
 
-        <div>
-          <h3 className="mb-6 text-2xl font-semibold text-white">Tools & Platforms</h3>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {tools.map((tool) => {
-              const Icon = tool.icon;
+        <div className="grid gap-6 xl:grid-cols-2">
+          <div className="space-y-4">
+            {frontendSkills.map((skill, index) => {
+              const Icon = skill.icon;
               return (
-                <motion.div key={tool.id} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3 }} whileHover={{ y: -6, scale: 1.01 }} className="rounded-2xl border border-white/10 bg-slate-900/70 p-5 text-center shadow-lg shadow-black/20">
-                  <div className={`flex justify-center text-3xl ${tool.color}`}><Icon /></div>
-                  <h4 className="mt-4 text-sm font-semibold text-white">{tool.name}</h4>
+                <motion.div
+                  key={skill.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: index * 0.04 }}
+                  whileHover={{ y: -4 }}
+                  className="rounded-[1.4rem] border border-white/10 bg-slate-900/60 p-4 shadow-[0_16px_50px_rgba(2,6,23,0.35)]"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className={`flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 ${skill.color}`}>
+                        <Icon />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="truncate text-base font-semibold text-white">{skill.name}</p>
+                        <p className="text-xs text-slate-400">Proficiency</p>
+                      </div>
+                    </div>
+                    <span className="text-sm font-semibold text-cyan-300">{skill.level}%</span>
+                  </div>
+                  <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-white/5">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: "easeOut" }}
+                      className="h-full rounded-full bg-linear-to-r from-violet-500 via-indigo-500 to-cyan-400"
+                    />
+                  </div>
                 </motion.div>
               );
             })}
+          </div>
+
+          <div className="space-y-4">
+            {backendSkills.map((skill, index) => {
+              const Icon = skill.icon;
+              return (
+                <motion.div
+                  key={skill.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: index * 0.04 }}
+                  whileHover={{ y: -4 }}
+                  className="rounded-[1.4rem] border border-white/10 bg-slate-900/60 p-4 shadow-[0_16px_50px_rgba(2,6,23,0.35)]"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className={`flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 ${skill.color}`}>
+                        <Icon />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="truncate text-base font-semibold text-white">{skill.name}</p>
+                        <p className="text-xs text-slate-400">Platform</p>
+                      </div>
+                    </div>
+                    <span className="text-sm font-semibold text-cyan-300">{skill.level}%</span>
+                  </div>
+                  <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-white/5">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: "easeOut" }}
+                      className="h-full rounded-full bg-linear-to-r from-emerald-500 via-cyan-500 to-sky-400"
+                    />
+                  </div>
+                </motion.div>
+              );
+            })}
+
+            <div className="rounded-[1.4rem] border border-white/10 bg-slate-900/60 p-5 shadow-[0_16px_50px_rgba(2,6,23,0.35)]">
+              <div className="mb-5 flex items-center justify-between gap-4">
+                <h3 className="text-xl font-semibold text-white">Tools & Platforms</h3>
+              </div>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {tools.map((tool, index) => {
+                  const Icon = tool.icon;
+                  return (
+                    <motion.div
+                      key={tool.id}
+                      initial={{ opacity: 0, scale: 0.96 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.35, delay: index * 0.04 }}
+                      whileHover={{ y: -3 }}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center"
+                    >
+                      <div className={`mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 ${tool.color}`}>
+                        <Icon />
+                      </div>
+                      <p className="mt-3 text-xs font-medium text-slate-200">{tool.name}</p>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
