@@ -12,17 +12,37 @@
   --bg-900: #040b17;
   --bg-800: #07111f;
   --bg-700: #0b1728;
-  --panel: rgba(9, 15, 29, 0.7);
+  --panel: rgba(9, 15, 29, 0.72);
   --panel-strong: rgba(12, 20, 35, 0.9);
-  --panel-soft: rgba(17, 25, 42, 0.7);
+  --panel-soft: rgba(15, 23, 42, 0.75);
+  --navbar: rgba(2, 6, 23, 0.72);
   --border: rgba(148, 163, 184, 0.16);
-  --text: #f8fafc;
-  --text-muted: rgba(148, 163, 184, 0.92);
+  --text-primary: #f8fafc;
+  --text-secondary: rgba(148, 163, 184, 0.92);
+  --text-muted: rgba(203, 213, 225, 0.82);
   --accent-1: #8b5cf6;
   --accent-2: #4f46e5;
   --accent-3: #38bdf8;
   --success: #34d399;
   --shadow: rgba(2, 6, 23, 0.5);
+  --bg-gradient: radial-gradient(circle at top left, rgba(139, 92, 246, 0.18), transparent 18%),
+    radial-gradient(circle at right center, rgba(56, 189, 248, 0.08), transparent 22%),
+    linear-gradient(180deg, #020817 0%, #030d1d 40%, #040b17 100%);
+}
+
+.light {
+  color-scheme: light;
+  --panel: rgba(255, 255, 255, 0.72);
+  --panel-strong: rgba(255, 255, 255, 0.88);
+  --panel-soft: rgba(241, 245, 249, 0.9);
+  --navbar: rgba(255, 255, 255, 0.72);
+  --border: rgba(148, 163, 184, 0.35);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --bg-gradient: radial-gradient(circle at top left, rgba(168, 85, 247, 0.12), transparent 18%),
+    radial-gradient(circle at right center, rgba(59, 130, 246, 0.08), transparent 22%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 40%, #e2e8f0 100%);
 }
 
 :root,
@@ -35,18 +55,17 @@ body,
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background: var(--bg-900);
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(circle at top left, rgba(139, 92, 246, 0.18), transparent 18%),
-    radial-gradient(circle at right center, rgba(56, 189, 248, 0.08), transparent 22%),
-    linear-gradient(180deg, #020817 0%, #030d1d 40%, #040b17 100%);
-  color: var(--text);
+  background: var(--bg-gradient);
+  color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 body::before {
@@ -105,12 +124,12 @@ ul {
 
 .dark {
   background: var(--bg-900);
-  color: var(--text);
+  color: var(--text-primary);
 }
 
 .light {
   background: #f8fafc;
-  color: #111827;
+  color: var(--text-primary);
 }
 
 .section-shell {
@@ -150,6 +169,7 @@ ul {
   letter-spacing: -0.06em;
   font-weight: 900;
   text-wrap: balance;
+  color: var(--text-primary);
 }
 
 .profile-shell {

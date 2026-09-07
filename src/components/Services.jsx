@@ -40,7 +40,7 @@ function Services() {
       <div className="section-shell relative">
         <div className="mb-10 text-left">
           <span className="section-label">What I can do for you</span>
-          <h2 className="mt-5 max-w-2xl text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 max-w-2xl text-3xl font-bold tracking-[-0.04em] text-(--text-primary) sm:text-4xl lg:text-5xl">
             Premium digital solutions for ambitious brands.
           </h2>
         </div>
@@ -54,16 +54,16 @@ function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
               whileHover={{ y: -8, scale: 1.01 }}
-              className="group relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-900/60 p-5 shadow-[0_24px_80px_rgba(2,6,23,0.35)]"
+              className="group relative overflow-hidden rounded-[1.6rem] border border-(--border) bg-(--panel) p-5 shadow-[0_24px_80px_rgba(2,6,23,0.35)]"
             >
               <div className={`absolute inset-x-0 top-0 h-24 bg-linear-to-r ${service.accent}`} />
               <div className="relative z-10">
                 <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-violet-500 to-cyan-400 shadow-[0_20px_35px_rgba(96,165,250,0.2)]">
                   {service.icon}
                 </div>
-                <h3 className="mt-6 text-xl font-semibold text-white">{service.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-400">{service.description}</p>
-                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+                <h3 className="mt-6 text-xl font-semibold text-(--text-primary)">{service.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-(--text-secondary)">{service.description}</p>
+                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-(--border) bg-(--panel-soft) px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
                   Read more
                 </div>
               </div>

@@ -6,6 +6,16 @@
     <meta name="theme-color" content="#020617" />
     <meta name="description" content="Lencho Ahmed is a MERN Stack developer building polished web products with React, Vite, and Tailwind CSS." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      try {
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : prefersDark ? 'dark' : 'light';
+        document.documentElement.classList.add(theme);
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (error) {}
+    </script>
     <title>Lencho Ahmed | Full Stack MERN Developer</title>
   </head>
   <body>

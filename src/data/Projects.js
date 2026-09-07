@@ -8,7 +8,7 @@ export const projects = [
     description: "A polished portfolio experience for a developer with immersive motion, responsive layouts, and a premium visual identity.",
     technologies: ["React", "Tailwind CSS", "Vite"],
     github: "https://github.com/mandeveloper582-oss",
-    demo: "https://lencho.dev",
+    demo: "http://portifolio-weld-beta-97.vercel.app (http://portifolio-weld-beta-97.vercel.app/)",
     features: ["Responsive layout", "Dark/light theme", "Smooth section transitions"],
   },
   {
@@ -20,7 +20,7 @@ export const projects = [
     description: "A full-stack content platform with authentication, admin tools, and a clean editorial experience.",
     technologies: ["React", "Node.js", "Express", "MongoDB"],
     github: "https://github.com/mandeveloper582-oss/odaa-blog-family",
-    demo: "https://odaa-blog-family.vercel.app/",
+    demo: "odaa-blog-family-4hfy.vercel.app",
     features: ["User auth", "Admin dashboard", "MongoDB-powered content"],
   },
   {
