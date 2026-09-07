@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 
 import { sendEmail } from "../utils/Email";
 
+const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim() || "lenchoa391@gmail.com";
+
 function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState("idle");
@@ -54,6 +56,7 @@ function Contact() {
       await sendEmail({
         from_name: formData.name.trim(),
         reply_to: formData.email.trim(),
+        to_email: contactEmail,
         subject: formData.subject.trim(),
         message: formData.message.trim(),
       });

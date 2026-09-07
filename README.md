@@ -7,7 +7,7 @@
 3. Add the EmailJS service ID, template ID, and public key from the EmailJS dashboard.
 4. Start the app with `npm run dev`.
 
-The contact form uses EmailJS. The template should accept these parameters: `from_name`, `reply_to`, `subject`, and `message`. Do not commit `.env.local` or any private credentials.
+The contact form uses EmailJS and sends messages to `lenchoa391@gmail.com`. Set the EmailJS template recipient to that address and configure the template parameters `from_name`, `reply_to`, `to_email`, `subject`, and `message`. Do not commit `.env.local` or any private credentials.
 
 ## Validation
 
