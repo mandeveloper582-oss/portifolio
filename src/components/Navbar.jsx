@@ -132,7 +132,7 @@ function Navbar() {
             transition={{ duration: 0.22 }}
             className="section-shell lg:hidden"
           >
-            <div className="mb-4 rounded-[1.5rem] border border-(--border) bg-(--panel-strong) p-4 shadow-[0_30px_80px_rgba(2,6,23,0.18)] backdrop-blur-xl">
+            <div className="mb-4 rounded-3xl border border-(--border) bg-(--panel-strong) p-4 shadow-[0_30px_80px_rgba(2,6,23,0.18)] backdrop-blur-xl">
               <div className="space-y-2">
                 {navLinks.map((item) => (
                   <a
