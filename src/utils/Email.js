@@ -1,12 +1,14 @@
 import emailjs from "@emailjs/browser";
 
-const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
-const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
-const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID?.trim();
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.trim();
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim();
+
+const isConfigured = Boolean(serviceId && templateId && publicKey);
 
 export const sendEmail = async (data) => {
-  if ([serviceId, templateId, publicKey].some((value) => value.includes("YOUR_"))) {
-    throw new Error("EmailJS is not configured yet. Set VITE_EMAILJS_* values in your environment.");
+  if (!isConfigured) {
+    throw new Error("Contact email is not configured. Add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY to the deployment environment.");
   }
 
   return emailjs.send(serviceId, templateId, data, publicKey);

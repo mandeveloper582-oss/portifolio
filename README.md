@@ -1,4 +1,18 @@
-# React + Vite
+# Lencho Ahmed Portfolio
+
+## Local setup
+
+1. Install dependencies with `npm install`.
+2. Copy `.env.example` to `.env.local`.
+3. Add the EmailJS service ID, template ID, and public key from the EmailJS dashboard.
+4. Start the app with `npm run dev`.
+
+The contact form uses EmailJS. The template should accept these parameters: `from_name`, `reply_to`, `subject`, and `message`. Do not commit `.env.local` or any private credentials.
+
+## Validation
+
+- `npm run lint`
+- `npm run build`
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

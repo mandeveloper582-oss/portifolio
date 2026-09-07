@@ -8,6 +8,7 @@ function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState("idle");
   const [errors, setErrors] = useState({});
+  const [statusMessage, setStatusMessage] = useState("");
 
   const validateForm = () => {
     const nextErrors = {};
@@ -36,12 +37,14 @@ function Contact() {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
     if (status !== "idle") setStatus("idle");
+    if (statusMessage) setStatusMessage("");
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!validateForm()) {
       setStatus("error");
+      setStatusMessage("Please correct the highlighted fields and try again.");
       return;
     }
 
@@ -55,11 +58,13 @@ function Contact() {
         message: formData.message.trim(),
       });
       setStatus("success");
+      setStatusMessage("Thank you! Your message has been sent successfully.");
       setFormData({ name: "", email: "", subject: "", message: "" });
       setErrors({});
     } catch (error) {
       console.error(error);
       setStatus("error");
+      setStatusMessage(error instanceof Error ? error.message : "We could not send your message. Please try again or contact me directly by email.");
     }
   };
 
@@ -155,8 +160,11 @@ function Contact() {
               <FaPaperPlane /> {status === "sending" ? "Sending..." : "Send Message"}
             </button>
 
-            {status === "success" && <p className="mt-4 text-emerald-500">Thank you! Your message has been sent successfully.</p>}
-            {status === "error" && <p className="mt-4 text-rose-500">Something went wrong. Please try again or contact me directly by email.</p>}
+            {statusMessage && (
+              <p className={`mt-4 ${status === "success" ? "text-emerald-500" : "text-rose-500"}`} role="status" aria-live="polite">
+                {statusMessage}
+              </p>
+            )}
           </motion.form>
         </div>
       </div>
